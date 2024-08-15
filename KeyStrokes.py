@@ -1,17 +1,14 @@
-from pynput.keyboard import Listener
+from pynput.keyboard import Key, Listener
+
 def on_press(key):
-    try:
-        with open("log.txt", "a") as f:
-            f.write(f'{key.char}')
-    except AttributeError:
-        with open("log.txt", "a") as f:
-            f.write(f'[{key}]')
+    print(f'{key} pressed')
 
 def on_release(key):
-    # Exit the program if 'esc' is pressed
-    if key == key.esc:
+    print(f'{key} released')
+    if key == Key.esc:
+        # Stop listener
         return False
 
-# Set up the listener
+# Collect events until released
 with Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
