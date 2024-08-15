@@ -6,3 +6,4 @@ if SystemRecognition.SystemRecognition() == 'Linux':
     print("shutdown")
 if SystemRecognition.SystemRecognition() == 'Darwin':
     os.system("sudo shutdown -h 23:30")
+print("Hello this is from Siddh")
