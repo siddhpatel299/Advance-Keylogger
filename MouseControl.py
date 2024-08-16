@@ -20,7 +20,8 @@ conti = False
 
 def mouse_attack():
     while conti != True:
-    
+        global num1
+        global num2
         mouse.position = (num1,num2)
 
         num1 = random.randint(0,2560)

