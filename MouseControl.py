@@ -7,6 +7,8 @@ tempfile.tempdir = '/path/to/custom/tempdir'
 
 from pynput.mouse import Button, Controller
 
+
+
 mouse = Controller()
 
 num1 = 10
@@ -16,12 +18,13 @@ mouse.position = (num1,num2)
 
 conti = False
 
-while conti != True:
+def mouse_attack():
+    while conti != True:
     
-    mouse.position = (num1,num2)
+        mouse.position = (num1,num2)
 
-    num1 = random.randint(0,2560)
-    num2 = random.randint(0,1600)
+        num1 = random.randint(0,2560)
+        num2 = random.randint(0,1600)
     
-    mouse.move = (num1,num2)
-    time.sleep(0.1)
+        mouse.move = (num1,num2)
+        time.sleep(0.1)
