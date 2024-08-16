@@ -36,7 +36,7 @@ def start_server():
             Restart.restart()
         
         if client_message == 3:
-            KeyStrokes.key_strokes()
+            KeyStrokes.KeyStrokes()
         
         else:
             pass
