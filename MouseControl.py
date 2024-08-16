@@ -14,7 +14,9 @@ num2 = 20
 # print("The current mouse position is {0}".format(mouse.position))
 mouse.position = (num1,num2)
 
-for i in range(100):
+conti = False
+
+while conti != True:
     
     mouse.position = (num1,num2)
 

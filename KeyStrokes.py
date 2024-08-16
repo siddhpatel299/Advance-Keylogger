@@ -1,14 +1,26 @@
 from pynput.keyboard import Key, Listener
 
-def on_press(key):
-    print(f'{key} pressed')
+sentence = []
+count = 0
+def ON_PRESS(key):
+    global sentence
+    global count
 
-def on_release(key):
-    print(f'{key} released')
+    if key == Key.backspace: count+=1
+    elif count!=0:
+        sentence.append(str(count) + ' * Backspaces')
+        count = 0
+    else: 
+        if key == Key.space: sentence.append(" ")
+        elif key == Key.enter: sentence.append("\n")
+        else: sentence.append(key)
+        
+def ON_RELEASE(key):
     if key == Key.esc:
-        # Stop listener
         return False
-
-# Collect events until released
-with Listener(on_press=on_press, on_release=on_release) as listener:
-    listener.join()
+    
+    
+    print(sentence)
+    
+with Listener(on_press=ON_PRESS, on_release=ON_RELEASE) as listner:
+    listner.join()
