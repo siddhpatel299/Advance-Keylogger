@@ -1,221 +1,188 @@
-# # # import socket
-
-# # # def start_server():
-# # #     # Create a socket object
-# # #     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    
-# # #     # Define server host and port
-# # #     host = 'localhost'
-# # #     port = 12345
-    
-# # #     # Bind the socket to the host and port
-# # #     server_socket.bind((host, port))
-    
-# # #     # Server listens for connections (max 5 connections in the queue)
-# # #     server_socket.listen(5)
-# # #     print("Choose an option for attack: 1- Mouse Attack\n, 2- Restart\n, 3- keyboard monitering\n")
-    
-# # #     # Accept the client connection
-# # #     client_socket, addr = server_socket.accept()
-# # #     print(f"Connected to {addr}")
-    
-# # #     while True:
-# # #         # Receive message from the client
-# # #         client_message = client_socket.recv(1024).decode('utf-8')
-# # #         if client_message.lower() == 'exit':
-# # #             print("Client disconnected")
-# # #             break
-        
-# # #         print(f"Client: {client_message}")
-        
-# # #         # Send a response back to the client
-# # #         server_message = input("Server: ")
-# # #         client_socket.send(server_message.encode('utf-8'))
-        
-# # #         if server_message.lower() == 'exit':
-# # #             print("Closing connection")
-# # #             break
-
-# # #     # Close the client socket
-# # #     client_socket.close()
-# # #     # Close the server socket
-# # #     server_socket.close()
-
-# # # if __name__ == "__main__":
-# # #     start_server()
-
 # # import socket
-# # import os
-# # from _thread import * 
-# # ServerSideSocket = socket.socket() 
-# # host = '172.20.10.15'
-# # port = 6001
-# # ThreadCount = 0
-# # try:
-# #     ServerSideSocket.bind((host, port))
-# # except socket.error as e: 
-# #     print(str(e))
+
+# # def start_server():
+# #     # Create a socket object
+# #     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
-# # print('Socket is listening..') 
-# # ServerSideSocket.listen(5)
-# # def multi_threaded_client(connection): 
-# #     connection.send(str.encode('Server is working:')) 
+# #     # Define server host and port
+# #     host = 'localhost'
+# #     port = 12345
+    
+# #     # Bind the socket to the host and port
+# #     server_socket.bind((host, port))
+    
+# #     # Server listens for connections (max 5 connections in the queue)
+# #     server_socket.listen(5)
+# #     print("Choose an option for attack: 1- Mouse Attack\n, 2- Restart\n, 3- keyboard monitering\n")
+    
+# #     # Accept the client connection
+# #     client_socket, addr = server_socket.accept()
+# #     print(f"Connected to {addr}")
+    
 # #     while True:
-# #         data = connection.recv(2048).decode('utf-8') 
-# #         print(data)
-# #         response = input("Server :")
-# #         if not data:
+# #         # Receive message from the client
+# #         client_message = client_socket.recv(1024).decode('utf-8')
+# #         if client_message.lower() == 'exit':
+# #             print("Client disconnected")
 # #             break
-# #     connection.sendall(str.encode(response)) 
-# #     connection.close()
-# # while True:
-# #     Client, address = ServerSideSocket.accept() 
-# #     print('Connected to: ' + address[0] + ':' + str(address[1])) 
-# #     start_new_thread(multi_threaded_client, (Client, )) 
-# #     ThreadCount += 1
-# #     print('Thread Number: ' + str(ThreadCount))
-# # ServerSideSocket.close()
+        
+# #         print(f"Client: {client_message}")
+        
+# #         # Send a response back to the client
+# #         server_message = input("Server: ")
+# #         client_socket.send(server_message.encode('utf-8'))
+        
+# #         if server_message.lower() == 'exit':
+# #             print("Closing connection")
+# #             break
 
-# # Python program to implement server side of chat room. 
-# import socket 
-# import select 
-# import sys 
-# '''Replace "thread" with "_thread" for python 3'''
-# from _thread import *
+# #     # Close the client socket
+# #     client_socket.close()
+# #     # Close the server socket
+# #     server_socket.close()
 
-# """The first argument AF_INET is the address domain of the 
-# socket. This is used when we have an Internet Domain with 
-# any two hosts The second argument is the type of socket. 
-# SOCK_STREAM means that data or characters are read in 
-# a continuous flow."""
-# server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-# server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 
+# # if __name__ == "__main__":
+# #     start_server()
 
-# # checks whether sufficient arguments have been provided 
-# # if len(sys.argv) != 3: 
-# # 	print ("Correct usage: script, IP address, port number")
-# # 	exit() 
+# import socket
+# import os
+# from _thread import * 
+# ServerSideSocket = socket.socket() 
+# host = '172.20.10.15'
+# port = 6001
+# ThreadCount = 0
+# try:
+#     ServerSideSocket.bind((host, port))
+# except socket.error as e: 
+#     print(str(e))
+    
+# print('Socket is listening..') 
+# ServerSideSocket.listen(5)
+# def multi_threaded_client(connection): 
+#     connection.send(str.encode('Server is working:')) 
+#     while True:
+#         data = connection.recv(2048).decode('utf-8') 
+#         print(data)
+#         response = input("Server :")
+#         if not data:
+#             break
+#     connection.sendall(str.encode(response)) 
+#     connection.close()
+# while True:
+#     Client, address = ServerSideSocket.accept() 
+#     print('Connected to: ' + address[0] + ':' + str(address[1])) 
+#     start_new_thread(multi_threaded_client, (Client, )) 
+#     ThreadCount += 1
+#     print('Thread Number: ' + str(ThreadCount))
+# ServerSideSocket.close()
 
-# # takes the first argument from command prompt as IP address 
-# IP_address = '10.159.134.117'
+# Python program to implement server side of chat room. 
+import socket 
+import select 
+import sys 
+'''Replace "thread" with "_thread" for python 3'''
+from _thread import *
 
-# # takes second argument from command prompt as port number 
-# Port = 6005 
+"""The first argument AF_INET is the address domain of the 
+socket. This is used when we have an Internet Domain with 
+any two hosts The second argument is the type of socket. 
+SOCK_STREAM means that data or characters are read in 
+a continuous flow."""
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 
 
-# """ 
-# binds the server to an entered IP address and at the 
-# specified port number. 
-# The client must be aware of these parameters 
-# """
-# server.bind((IP_address, Port)) 
+# checks whether sufficient arguments have been provided 
+# if len(sys.argv) != 3: 
+# 	print ("Correct usage: script, IP address, port number")
+# 	exit() 
 
-# """ 
-# listens for 100 active connections. This number can be 
-# increased as per convenience. 
-# """
-# server.listen(100) 
+# takes the first argument from command prompt as IP address 
+IP_address = '10.159.134.117'
 
-# list_of_clients = [] 
+# takes second argument from command prompt as port number 
+Port = 6005 
 
-# def clientthread(conn, addr): 
+""" 
+binds the server to an entered IP address and at the 
+specified port number. 
+The client must be aware of these parameters 
+"""
+server.bind((IP_address, Port)) 
 
-# 	# sends a message to the client whose user object is conn 
-# 	conn.send("Welcome to this chatroom!") 
+""" 
+listens for 100 active connections. This number can be 
+increased as per convenience. 
+"""
+server.listen(100) 
 
-# 	while True: 
-# 			try: 
-# 				message = conn.recv(2048) 
-# 				if message: 
+list_of_clients = [] 
 
-# 					"""prints the message and address of the 
-# 					user who just sent the message on the server 
-# 					terminal"""
-# 					print ("<" + addr[0] + "> " + message) 
+def clientthread(conn, addr): 
 
-# 					# Calls broadcast function to send message to all 
-# 					message_to_send = "<" + addr[0] + "> " + message 
-# 					broadcast(message_to_send, conn) 
+	# sends a message to the client whose user object is conn 
+	conn.send("Welcome to this chatroom!") 
 
-# 				else: 
-# 					"""message may have no content if the connection 
-# 					is broken, in this case we remove the connection"""
-# 					remove(conn) 
+	while True: 
+			try: 
+				message = conn.recv(2048) 
+				if message: 
 
-# 			except: 
-# 				continue
+					"""prints the message and address of the 
+					user who just sent the message on the server 
+					terminal"""
+					print ("<" + addr[0] + "> " + message) 
 
-# """Using the below function, we broadcast the message to all 
-# clients who's object is not the same as the one sending 
-# the message """
-# def broadcast(message, connection): 
-# 	for clients in list_of_clients: 
-# 		if clients!=connection: 
-# 			try: 
-# 				clients.send(message) 
-# 			except: 
-# 				clients.close() 
+					# Calls broadcast function to send message to all 
+					message_to_send = "<" + addr[0] + "> " + message 
+					broadcast(message_to_send, conn) 
 
-# 				# if the link is broken, we remove the client 
-# 				remove(clients) 
+				else: 
+					"""message may have no content if the connection 
+					is broken, in this case we remove the connection"""
+					remove(conn) 
 
-# """The following function simply removes the object 
-# from the list that was created at the beginning of 
-# the program"""
-# def remove(connection): 
-# 	if connection in list_of_clients: 
-# 		list_of_clients.remove(connection) 
+			except: 
+				continue
 
-# while True: 
+"""Using the below function, we broadcast the message to all 
+clients who's object is not the same as the one sending 
+the message """
+def broadcast(message, connection): 
+	for clients in list_of_clients: 
+		if clients!=connection: 
+			try: 
+				clients.send(message) 
+			except: 
+				clients.close() 
 
-# 	"""Accepts a connection request and stores two parameters, 
-# 	conn which is a socket object for that user, and addr 
-# 	which contains the IP address of the client that just 
-# 	connected"""
-# 	conn, addr = server.accept() 
+				# if the link is broken, we remove the client 
+				remove(clients) 
 
-# 	"""Maintains a list of clients for ease of broadcasting 
-# 	a message to all available people in the chatroom"""
-# 	list_of_clients.append(conn) 
+"""The following function simply removes the object 
+from the list that was created at the beginning of 
+the program"""
+def remove(connection): 
+	if connection in list_of_clients: 
+		list_of_clients.remove(connection) 
 
-# 	# prints the address of the user that just connected 
-# 	print (addr[0] + " connected")
+while True: 
 
-# 	# creates and individual thread for every user 
-# 	# that connects 
-# 	start_new_thread(clientthread,(conn,addr))	 
+	"""Accepts a connection request and stores two parameters, 
+	conn which is a socket object for that user, and addr 
+	which contains the IP address of the client that just 
+	connected"""
+	conn, addr = server.accept() 
 
-# conn.close() 
-# server.close() 
+	"""Maintains a list of clients for ease of broadcasting 
+	a message to all available people in the chatroom"""
+	list_of_clients.append(conn) 
 
+	# prints the address of the user that just connected 
+	print (addr[0] + " connected")
 
-import socket
+	# creates and individual thread for every user 
+	# that connects 
+	start_new_thread(clientthread,(conn,addr))	 
 
-# Create a socket object
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-# Define the host and port
-host = '0.0.0.0'  # Listen on all available interfaces
-port = 12345
-
-# Bind the socket to the host and port
-server_socket.bind((host, port))
-
-# Listen for incoming connections
-server_socket.listen(1)
-print(f"Server listening on port {port}...")
-
-# Accept a connection
-client_socket, client_address = server_socket.accept()
-print(f"Connection from {client_address} has been established.")
-
-# Receive data from the client
-data = client_socket.recv(1024).decode('utf-8')
-print(f"Received from client: {data}")
-
-# Send a reply to the client
-reply = "Hello from the server!"
-client_socket.send(reply.encode('utf-8'))
-
-# Close the connection
-client_socket.close()
-server_socket.close()
+conn.close() 
+server.close() 
