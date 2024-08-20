@@ -6,7 +6,7 @@ def start_client():
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
     # Define server IP address and port
-    host = '172.20.10.7'
+    host = '192.168.0.179'
     port = 12310
     
     # Connect to the server
