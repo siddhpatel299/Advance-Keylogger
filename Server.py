@@ -18,6 +18,9 @@ def start_server():
     # Accept the client connection
     client_socket, addr = server_socket.accept()
     print(f"Connected to {addr}")
+    smsg = "You are connected with server !!!"
+    client_socket.send(smsg.encode('utf-8'))
+
     
     while True:
         # Receive message from the client
