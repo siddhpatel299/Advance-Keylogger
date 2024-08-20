@@ -5,7 +5,7 @@ def start_server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
     # Define server host and port
-    host = '192.168.0.179'
+    host = '127.0.0.1'
     port = 12310
     
     # Bind the socket to the host and port
