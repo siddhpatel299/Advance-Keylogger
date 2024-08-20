@@ -92,67 +92,6 @@ while True:
 	condition will evaluate as true"""
 	read_sockets,write_socket, error_socket = select.select(sockets_list,[],[]) 
 
-<<<<<<< HEAD
-# server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-# if len(sys.argv) != 3: 
-# 	print ("Correct usage: script, IP address, port number")
-# 	exit() 
-# IP_address = str(sys.argv[1]) 
-# Port = int(sys.argv[2]) 
-# server.connect((IP_address, Port)) 
-
-# while True: 
-
-# 	# maintains a list of possible input streams 
-# 	sockets_list = [sys.stdin, server] 
-
-# 	""" There are two possible input situations. Either the 
-# 	user wants to give manual input to send to other people, 
-# 	or the server is sending a message to be printed on the 
-# 	screen. Select returns from sockets_list, the stream that 
-# 	is reader for input. So for example, if the server wants 
-# 	to send a message, then the if condition will hold true 
-# 	below.If the user wants to send a message, the else 
-# 	condition will evaluate as true"""
-# 	read_sockets,write_socket, error_socket = select.select(sockets_list,[],[]) 
-
-# 	for socks in read_sockets: 
-# 		if socks == server: 
-# 			message = socks.recv(2048) 
-# 			print (message) 
-# 		else: 
-# 			message = sys.stdin.readline() 
-# 			server.send(message) 
-# 			sys.stdout.write("<You>") 
-# 			sys.stdout.write(message) 
-# 			sys.stdout.flush() 
-# server.close() 
-
-
-import socket
-
-# Create a socket object
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-# Define the server's address and port
-server_ip = '10.159.134.117'  # Replace with the server's IP address
-server_port = 12345
-
-# Connect to the server
-client_socket.connect((server_ip, server_port))
-
-# Send data to the server
-message = "Hello from the client!"
-client_socket.send(message.encode('utf-8'))
-
-# Receive the server's reply
-reply = client_socket.recv(1024).decode('utf-8')
-print(f"Received from server: {reply}")
-
-# Close the connection
-client_socket.close()
-
-=======
 	for socks in read_sockets: 
 		if socks == server: 
 			message = socks.recv(2048) 
@@ -164,4 +103,3 @@ client_socket.close()
 			sys.stdout.write(message) 
 			sys.stdout.flush() 
 server.close() 
->>>>>>> 9dd5de10690f028533b0f3c2f26cdc2ee791a1ce
