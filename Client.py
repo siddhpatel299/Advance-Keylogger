@@ -111,7 +111,7 @@ import socket
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Define the server's address and port
-server_ip = 'SERVER_IP'  # Replace with the server's IP address
+server_ip = '10.159.134.117'  # Replace with the server's IP address
 server_port = 12345
 
 # Connect to the server
@@ -127,3 +127,4 @@ print(f"Received from server: {reply}")
 
 # Close the connection
 client_socket.close()
+
