@@ -6,12 +6,16 @@ def start_client():
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
     # Define server IP address and port
-    host = '172.20.10.7'
+    host = '192.168.0.179'
     port = 12310
     
     # Connect to the server
     client_socket.connect((host, port))
-    
+    server_message = client_socket.recv(1024).decode('utf-8')
+
+    client_message = input("Client: ")
+    client_socket.send(client_message.encode('utf-8'))
+
     while True:
         
         # Send a message to the server
