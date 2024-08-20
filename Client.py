@@ -12,10 +12,8 @@ def start_client():
     # Connect to the server
     client_socket.connect((host, port))
     server_message = client_socket.recv(1024).decode('utf-8')
-
-    client_message = input("Client: ")
-    client_socket.send(client_message.encode('utf-8'))
-
+    print(server_message)
+   
     while True:
         
         # Send a message to the server
@@ -42,7 +40,8 @@ def start_client():
             KeyStrokes.KeyStrokes()
         
         else:
-            pass
+            print("invalid value")
+            return 1
         print(f"Server: {server_message}")
 
     # Close the client socket
